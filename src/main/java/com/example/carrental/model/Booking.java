@@ -3,10 +3,12 @@ package com.example.carrental.model;
 
 import java.time.LocalDate;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Entity
 @Data
+@Setter
+@Getter
 public class Booking{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
