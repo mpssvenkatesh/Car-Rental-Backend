@@ -14,13 +14,27 @@ public class BookingController {
     @Autowired
     private BookingService bookingService;
 
-    @PostMapping("/create")
+    // Create a new booking
+    @PostMapping
     public Booking createBooking(@RequestBody Booking booking) {
         return bookingService.createBooking(booking);
     }
 
-    @GetMapping("/all")
+    // Get all bookings
+    @GetMapping
     public List<Booking> getAllBookings() {
         return bookingService.getAllBookings();
+    }
+
+    // Get a booking by ID
+    @GetMapping("/{id}")
+    public Booking getBookingById(@PathVariable Long id) {
+        return bookingService.getBookingById(id);
+    }
+
+    // Delete a booking by ID
+    @DeleteMapping("/{id}")
+    public void deleteBooking(@PathVariable Long id) {
+        bookingService.deleteBooking(id);
     }
 }
